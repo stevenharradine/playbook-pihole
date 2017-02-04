@@ -1,0 +1,6 @@
+
+---
+- connection: local
+  hosts: localhost
+  roles:
+    - role: stevenharradine.pihole
