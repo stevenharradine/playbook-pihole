@@ -1,6 +1,12 @@
-
 ---
 - connection: local
   hosts: localhost
+  remote_user: douglas
+  vars:
+    project: pihole
+    ip_address: "192.168.2.{% if environment_tier=='development' %}78{% elif environment_tier=='production' %}79{% endif %}"
   roles:
+    - role: stevenharradine.static-ip
+      static_ip_address: "{{ ip_address }}"
+    - role: stevenharradine.hostname
     - role: stevenharradine.pihole
